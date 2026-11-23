@@ -1,16 +1,393 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Janus Global Visa</title>
-<link rel="stylesheet" href="estilo.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Janus Global Visa — seu dossiê de imigração, organizado</title>
+<meta name="description" content="Organize, confira e monte o pacote do seu Green Card por emprego (EB-1A, EB-2 NIW) com documentos criptografados no seu celular. Não é serviço jurídico.">
+<meta name="theme-color" content="#0E6B70">
+<meta property="og:title" content="Janus Global Visa">
+<meta property="og:description" content="Seu dossiê de imigração, organizado do primeiro documento ao PDF final.">
+<style>
+:root{
+  --fundo:#F6F8F9;--sup:#FFFFFF;--sup2:#EEF3F4;--texto:#14202A;--sec:#4F5E6B;--borda:#DFE6EA;
+  --prim:#0E6B70;--prim2:#0A4F53;--suave:#E1F1F1;--ouro:#C99A3B;--ouroSuave:#FBF3E2;
+  --verde:#1B5E34;--verdeF:#E5F4EA;--amar:#7A4A00;--amarF:#FFF3D6;--verm:#9A1C14;--vermF:#FDECEB;
+  --sombra:0 10px 30px rgba(11,26,36,.08),0 2px 6px rgba(11,26,36,.05);
+  --serif:ui-serif,"New York","Iowan Old Style",Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{
+  --fundo:#0B1216;--sup:#121C22;--sup2:#18252C;--texto:#E9EFF2;--sec:#A3B1BB;--borda:#24333B;
+  --prim:#4FB9BE;--prim2:#2E8F94;--suave:#14333A;--ouro:#E0B75E;--ouroSuave:#2A2416;
+  --verde:#8FD3A6;--verdeF:#16301F;--amar:#F2C86B;--amarF:#33280F;--verm:#F29B93;--vermF:#3A1916;
+  --sombra:0 10px 30px rgba(0,0,0,.35);
+}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--fundo);color:var(--texto);font:17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--prim)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+/* topo */
+.topo{position:sticky;top:0;z-index:10;backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);background:color-mix(in srgb,var(--fundo) 78%,transparent);border-bottom:1px solid color-mix(in srgb,var(--borda) 70%,transparent)}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--texto);font-weight:700;letter-spacing:-.01em}
+.selo{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;color:#fff;font:700 19px var(--serif);background:linear-gradient(145deg,#12858b,#0A4F53);box-shadow:0 4px 12px rgba(14,107,112,.35)}
+.topo nav{display:flex;align-items:center;gap:20px;font-size:15px}
+.topo nav a{text-decoration:none;color:var(--sec)}
+.topo nav a:hover{color:var(--texto)}
+.lang{border:1px solid var(--borda);background:var(--sup);color:var(--texto);border-radius:999px;padding:6px 12px;font:600 13px var(--sans);cursor:pointer}
+@media (max-width:760px){.topo nav a.opc{display:none}}
+/* hero */
+.hero{position:relative;overflow:hidden;padding:72px 0 40px}
+.hero::before{content:"";position:absolute;inset:-30% -10% auto -10%;height:720px;background:
+ radial-gradient(600px 380px at 15% 30%,color-mix(in srgb,var(--prim) 22%,transparent),transparent 70%),
+ radial-gradient(520px 340px at 85% 10%,color-mix(in srgb,var(--ouro) 20%,transparent),transparent 70%);
+ pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero{padding-top:40px}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:var(--sup);border:1px solid var(--borda);font-size:13px;font-weight:600;color:var(--sec);box-shadow:var(--sombra)}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--ouro);display:inline-block}
+h1{font:600 clamp(38px,5.4vw,64px)/1.05 var(--serif);letter-spacing:-.02em;margin:18px 0 18px}
+h1 em{font-style:italic;color:var(--prim)}
+.lead{font-size:clamp(17px,1.6vw,20px);color:var(--sec);max-width:560px;margin:0 0 28px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:14px;padding:14px 20px;font-weight:600;text-decoration:none;font-size:16px;border:0}
+.btn.prim{background:linear-gradient(145deg,#12858b,#0A4F53);color:#fff;box-shadow:0 10px 24px rgba(14,107,112,.35)}
+.btn.sec{background:var(--sup);color:var(--texto);border:1px solid var(--borda)}
+.btn small{display:block;font-weight:500;font-size:12px;opacity:.85}
+.loja{cursor:default}
+.confianca{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:26px;font-size:14px;color:var(--sec)}
+.confianca span{display:inline-flex;align-items:center;gap:6px}
+.ok{width:18px;height:18px;flex:none}
+/* celular */
+.palco{display:flex;justify-content:center;position:relative}
+.celular{width:300px;max-width:82vw;border-radius:44px;padding:12px;background:linear-gradient(160deg,#2b3a42,#0f171b);box-shadow:0 40px 80px rgba(11,26,36,.28),0 0 0 1px rgba(255,255,255,.06) inset;animation:flutua 7s ease-in-out infinite}
+@keyframes flutua{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-12px) rotate(-.5deg)}}
+.tela{border-radius:34px;overflow:hidden;background:#F4F6F8;color:#16212B;font-size:12px;line-height:1.45}
+.ilha{width:92px;height:24px;border-radius:14px;background:#0f171b;margin:8px auto 0}
+.app{padding:10px 12px 16px;display:grid;gap:9px}
+.cab{border-radius:16px;padding:12px;background:#0E6B70;color:#fff;display:grid;gap:6px}
+.cab .l{display:flex;align-items:center;gap:8px;font-weight:700}
+.cab .b{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center;font-size:14px}
+.cab .p{font-size:16px;font-weight:800}
+.trilho{height:6px;border-radius:4px;background:rgba(255,255,255,.25);overflow:hidden}.trilho i{display:block;height:100%;width:40%;background:#fff;border-radius:4px}
+.chips{display:flex;gap:5px;flex-wrap:wrap}
+.chip{border-radius:999px;padding:2px 8px;font-weight:700;font-size:10.5px}
+.c-v{background:#E5F4EA;color:#1B5E34}.c-a{background:#FFF3D6;color:#7A4A00}.c-r{background:#FDECEB;color:#9A1C14}
+.card{background:#fff;border-radius:14px;padding:10px;box-shadow:0 3px 10px rgba(11,26,36,.06)}
+.card.dest{border:1.5px solid #0E6B70}
+.rot{font-size:9.5px;font-weight:700;letter-spacing:.05em;color:#51606E}
+.mini{display:flex;align-items:center;justify-content:center;gap:6px;background:#0E6B70;color:#fff;border-radius:10px;padding:8px;font-weight:700;margin-top:6px}
+.pasta{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #EEF2F5}
+.pasta:last-child{border:0}
+.pi{width:24px;height:24px;border-radius:50%;background:#E1F1F1;display:grid;place-items:center;flex:none}
+.pasta b{display:block;font-size:11px}.pasta small{color:#51606E;font-size:10px}
+.dot{width:8px;height:8px;border-radius:50%;margin-left:auto;flex:none}
+.flutuante{white-space:nowrap;position:absolute;background:var(--sup);border:1px solid var(--borda);border-radius:14px;padding:10px 12px;box-shadow:var(--sombra);font-size:13px;display:flex;gap:8px;align-items:center}
+.f1{right:calc(50% + 120px);top:10%;animation:flutua 8s ease-in-out infinite reverse}
+.f2{left:calc(50% + 120px);bottom:12%;animation:flutua 9s ease-in-out infinite}
+@media (max-width:900px){.flutuante{display:none}}
+/* seções */
+section{padding:84px 0}
+.titulo{text-align:center;max-width:720px;margin:0 auto 44px}
+.titulo .k{color:var(--ouro);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+h2{font:600 clamp(30px,3.6vw,44px)/1.12 var(--serif);letter-spacing:-.015em;margin:10px 0 12px}
+.titulo p{color:var(--sec);margin:0}
+.grade{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:1000px){.grade{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.grade{grid-template-columns:1fr}}
+.rec{background:var(--sup);border:1px solid var(--borda);border-radius:20px;padding:22px;box-shadow:var(--sombra);transition:transform .25s ease,box-shadow .25s ease}
+.rec:hover{transform:translateY(-4px)}
+.ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--suave);color:var(--prim);margin-bottom:14px}
+.ic svg{width:24px;height:24px}
+.rec h3{margin:0 0 6px;font-size:17px}
+.rec p{margin:0;color:var(--sec);font-size:15px}
+/* passos */
+.passos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:p}
+@media (max-width:800px){.passos{grid-template-columns:1fr}}
+.passo{position:relative;padding:26px 22px 22px;border-radius:20px;background:var(--sup);border:1px solid var(--borda)}
+.passo::before{counter-increment:p;content:counter(p);position:absolute;top:-16px;left:22px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font:700 16px var(--serif);color:#fff;background:linear-gradient(145deg,#12858b,#0A4F53)}
+.passo h3{margin:6px 0 6px;font-size:18px}.passo p{margin:0;color:var(--sec);font-size:15px}
+/* privacidade */
+.escura{background:linear-gradient(160deg,#0C3E42,#08262A);color:#E9F4F4;border-radius:32px;padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;overflow:hidden}
+.escura::after{content:"";position:absolute;right:-120px;top:-120px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(201,154,59,.28),transparent 70%)}
+@media (max-width:860px){.escura{grid-template-columns:1fr;padding:34px 22px;border-radius:24px}}
+.escura h2{color:#fff}.escura p{color:#B9D3D4}
+.lista{list-style:none;padding:0;margin:0;display:grid;gap:12px;position:relative;z-index:1}
+.lista li{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px 14px}
+.lista svg{width:20px;height:20px;flex:none;color:#E0B75E;margin-top:3px}
+/* países */
+.paises{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.pais{display:inline-flex;align-items:center;gap:8px;background:var(--sup);border:1px solid var(--borda);border-radius:999px;padding:8px 14px 8px 10px;font-size:15px}
+.pais .f{font-size:20px;line-height:1}
+.pais .s{font-size:11px;font-weight:700;border-radius:999px;padding:2px 7px;background:var(--sup2);color:var(--sec)}
+.pais.ativo{border-color:var(--prim);box-shadow:0 0 0 3px color-mix(in srgb,var(--prim) 15%,transparent)}
+.pais.ativo .s{background:var(--verdeF);color:var(--verde)}
+.fonte{text-align:center;color:var(--sec);font-size:13px;margin-top:18px}
+/* planos */
+.planos{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:880px;margin:0 auto}
+@media (max-width:760px){.planos{grid-template-columns:1fr}}
+.plano{background:var(--sup);border:1px solid var(--borda);border-radius:24px;padding:28px;box-shadow:var(--sombra)}
+.plano.top{border:2px solid var(--prim);position:relative}
+.plano .tag{position:absolute;top:-13px;right:22px;background:var(--ouro);color:#2a1d02;font-weight:800;font-size:12px;border-radius:999px;padding:4px 12px}
+.plano h3{margin:0;font:600 26px var(--serif)}
+.plano .pr{font-size:15px;color:var(--sec);margin:4px 0 18px}
+.plano ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.plano li{display:flex;gap:10px;font-size:15px}
+.plano li svg{width:18px;height:18px;flex:none;color:var(--prim);margin-top:3px}
+/* faq */
+.faq{max-width:780px;margin:0 auto;display:grid;gap:10px}
+details{background:var(--sup);border:1px solid var(--borda);border-radius:16px;padding:16px 20px}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--prim);font-size:22px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--sec);margin:10px 0 0;font-size:15px}
+/* aviso e rodapé */
+.aviso{max-width:900px;margin:0 auto;background:var(--ouroSuave);border:1px solid color-mix(in srgb,var(--ouro) 40%,transparent);border-radius:18px;padding:18px 22px;font-size:14px;color:var(--texto)}
+footer{border-top:1px solid var(--borda);padding:34px 0 48px;color:var(--sec);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+footer a{color:var(--sec)}
+/* animação de entrada */
+.surge{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.surge.vis{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}.surge{opacity:1;transform:none}}
+</style>
 </head>
-<body><main>
-<header><div class="logo">J</div><div><strong>Janus Global Visa</strong><div class="sec">Organizador de dossiê de imigração</div></div></header>
-<nav><a href="index.html">Início</a><a href="privacidade.html">Privacidade</a><a href="suporte.html">Suporte</a></nav>
-<h1>Seu dossiê de imigração, organizado com calma.</h1>
-<p>O Janus ajuda você a reunir, organizar e conferir os documentos do seu pedido de Green Card por emprego nos EUA (EB-1A, EB-2 NIW e outros), com listas baseadas em fontes oficiais, pastas com os nomes usados pelo governo americano e um pacote final em PDF com anexos numerados.</p>
-<div class="cartao destaque">🔒 Seus documentos ficam só no seu aparelho, criptografados. Sem cadastro, sem publicidade, sem rastreamento.</div>
-<p class="sec">O Janus não é escritório de advocacia, não presta aconselhamento jurídico, não é afiliado a nenhum governo e não garante aprovação.</p>
-<p class="sec">Janus organizes your U.S. employment-based Green Card dossier. Your documents stay encrypted on your device. Not a law firm; not affiliated with any government; no guarantee of approval. · <a href="privacidade.html#english">Privacy</a> · <a href="suporte.html#english">Support</a></p>
-</main></body></html>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.2 4.2L19 7"/></symbol>
+</svg>
+
+<header class="topo"><div class="wrap">
+  <a class="marca" href="#"><span class="selo">J</span>Janus Global Visa</a>
+  <nav>
+    <a class="opc" href="#recursos" data-t="nav1">Recursos</a>
+    <a class="opc" href="#privacidade" data-t="nav2">Privacidade</a>
+    <a class="opc" href="#planos" data-t="nav3">Planos</a>
+    <a class="opc" href="#faq">FAQ</a>
+    <button class="lang" id="lang" type="button" aria-label="Change language">EN</button>
+  </nav>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+  <div class="surge">
+    <span class="eyebrow"><i></i><span data-t="eyebrow">Green Card por emprego · EB-1A · EB-2 NIW</span></span>
+    <h1 data-t="h1" data-html>Seu dossiê de imigração, <em>organizado</em> do primeiro documento ao PDF final.</h1>
+    <p class="lead" data-t="lead">O Janus guarda seus documentos com criptografia no seu celular, organiza tudo nas pastas com os nomes oficiais e mostra, com fonte e data, o que ainda falta conferir.</p>
+    <div class="ctas">
+      <span class="btn prim loja" role="note" aria-label="Em breve na App Store e no Google Play">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 3v13h10V5H7zm5 14.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>
+        <span><small data-t="breve1">Em breve</small><span data-t="breve2">iPhone e Android</span></span>
+      </span>
+      <a class="btn sec" href="#como" data-t="como">Ver como funciona</a>
+    </div>
+    <div class="confianca">
+      <span><svg class="ok"><use href="#check"/></svg><span data-t="c1">Criptografado no aparelho</span></span>
+      <span><svg class="ok"><use href="#check"/></svg><span data-t="c2">Sem cadastro</span></span>
+      <span><svg class="ok"><use href="#check"/></svg><span data-t="c3">Sem anúncios nem rastreamento</span></span>
+    </div>
+  </div>
+
+  <div class="palco surge" aria-hidden="true">
+    <div class="flutuante f1"><span class="chip c-v">✓</span><span data-t="fl1">Pasta conferida</span></div>
+    <div class="celular"><div class="tela">
+      <div class="ilha"></div>
+      <div class="app">
+        <div class="cab">
+          <div class="l"><span class="b">🇺🇸</span><span><span data-t="m_pais">Estados Unidos</span><br><span style="font-weight:500;opacity:.9">EB-2 NIW</span></span></div>
+          <div class="p" data-t="m_passos">4 de 10 passos</div>
+          <div class="trilho"><i></i></div>
+          <div class="chips"><span class="chip c-v" data-t="m_v">6 verde</span><span class="chip c-a" data-t="m_a">3 amarelo</span><span class="chip c-r" data-t="m_r">1 vermelho</span></div>
+        </div>
+        <div class="card dest">
+          <div class="rot" data-t="m_prox">PRÓXIMA AÇÃO</div>
+          <b data-t="m_acao">Adicionar cartas de recomendação</b>
+          <div class="mini" data-t="m_fazer">Fazer agora →</div>
+        </div>
+        <div class="card">
+          <div class="pasta"><span class="pi">🎓</span><span><b>Advanced Degree</b><small data-t="m_p1">Diploma e histórico</small></span><span class="dot" style="background:#2E9E5B"></span></div>
+          <div class="pasta"><span class="pi">✉️</span><span><b>Letters of Recommendation</b><small data-t="m_p2">2 de 3 cartas</small></span><span class="dot" style="background:#E0A32E"></span></div>
+          <div class="pasta"><span class="pi">📄</span><span><b>Professional Plan</b><small data-t="m_p3">Rascunho</small></span><span class="dot" style="background:#E0A32E"></span></div>
+        </div>
+      </div>
+    </div></div>
+    <div class="flutuante f2"><span style="font-size:18px">🔒</span><span data-t="fl2">PDF pronto para revisão</span></div>
+  </div>
+</div></section>
+
+<section id="recursos"><div class="wrap">
+  <div class="titulo surge"><div class="k" data-t="k1">Recursos</div><h2 data-t="h2a">Tudo o que o seu pedido exige, num só lugar.</h2><p data-t="p2a">Feito para quem monta o próprio dossiê ou quer chegar ao advogado com tudo organizado.</p></div>
+  <div class="grade">
+    <div class="rec surge"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><h3 data-t="r1t">Cofre criptografado</h3><p data-t="r1">Fotos, PDFs e dados ficam só no seu celular, protegidos por Face ID ou digital.</p></div>
+    <div class="rec surge"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><h3 data-t="r2t">Pastas com nomes oficiais</h3><p data-t="r2">Organização pelos termos usados nas normas do governo americano para cada critério.</p></div>
+    <div class="rec surge"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="6" r="2.5"/><circle cx="12" cy="12" r="2.5"/><circle cx="12" cy="18" r="2.5"/></svg></div><h3 data-t="r3t">Semáforo de conferência</h3><p data-t="r3">Verde, amarelo ou vermelho para cada item — sempre com a fonte oficial e a data.</p></div>
+    <div class="rec surge"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></div><h3 data-t="r4t">Pacote final em PDF</h3><p data-t="r4">Anexos numerados (Exhibits), índice e separadores, pronto para revisão.</p></div>
+    <div class="rec surge"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2"/></svg></div><h3 data-t="r5t">Taxas oficiais</h3><p data-t="r5">Estimativa por tipo de visto, fora ou dentro dos EUA, com aviso de que os valores mudam.</p></div>
+    <div class="rec surge"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></div><h3 data-t="r6t">Explorador de caminhos</h3><p data-t="r6">Veja os requisitos oficiais de cada categoria lado a lado. Informativo, sem recomendação.</p></div>
+    <div class="rec surge"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div><h3 data-t="r7t">Trilha para médicos</h3><p data-t="r7">Physician NIW, licença médica por estado e o que fazer fora do app, com links oficiais.</p></div>
+    <div class="rec surge"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a6 6 0 0 0-6 6v3.5L4.5 16h15L18 12.5V9a6 6 0 0 0-6-6zM10 19a2 2 0 0 0 4 0"/></svg></div><h3 data-t="r8t">Lembretes de prazos</h3><p data-t="r8">Avisos locais e discretos dos próximos passos — sem servidor, sem dados expostos.</p></div>
+  </div>
+</div></section>
+
+<section id="como" style="padding-top:20px"><div class="wrap">
+  <div class="titulo surge"><div class="k" data-t="k2">Como funciona</div><h2 data-t="h2b">Três passos, no seu ritmo.</h2></div>
+  <div class="passos">
+    <div class="passo surge"><h3 data-t="s1t">Escolha o destino e o pedido</h3><p data-t="s1">Estados Unidos, EB-1A ou EB-2 NIW. O app monta o mapa do que cada critério pede.</p></div>
+    <div class="passo surge"><h3 data-t="s2t">Adicione seus documentos</h3><p data-t="s2">Foto, galeria ou PDF — vários de uma vez. Cada um vai para a pasta certa.</p></div>
+    <div class="passo surge"><h3 data-t="s3t">Confira e gere o pacote</h3><p data-t="s3">Resolva o que está amarelo ou vermelho e gere o PDF para revisar com seu advogado.</p></div>
+  </div>
+</div></section>
+
+<section id="privacidade" style="padding-top:20px"><div class="wrap">
+  <div class="escura surge">
+    <div style="position:relative;z-index:1">
+      <div class="k" style="color:#E0B75E;font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase" data-t="k3">Privacidade em primeiro lugar</div>
+      <h2 data-t="h2c">Seus documentos nunca saem do seu celular sem você pedir.</h2>
+      <p data-t="p2c">Passaporte, diplomas e cartas são dados sensíveis. Por isso o Janus foi feito para funcionar sem conta e sem nuvem.</p>
+    </div>
+    <ul class="lista">
+      <li><svg><use href="#check"/></svg><span data-t="l1">Banco de dados e arquivos criptografados, com a chave guardada no cofre seguro do aparelho.</span></li>
+      <li><svg><use href="#check"/></svg><span data-t="l2">Sem cadastro, sem anúncios, sem ferramentas de rastreamento.</span></li>
+      <li><svg><use href="#check"/></svg><span data-t="l3">Exportar e compartilhar só com a sua confirmação.</span></li>
+      <li><svg><use href="#check"/></svg><span data-t="l4">Apagar tudo com um toque, quando quiser.</span></li>
+    </ul>
+  </div>
+</div></section>
+
+<section id="paises" style="padding-top:20px"><div class="wrap">
+  <div class="titulo surge"><div class="k" data-t="k4">Destinos</div><h2 data-t="h2d">Começando pelos Estados Unidos.</h2><p data-t="p2d">Novos destinos entram só depois de revisarmos as regras oficiais de cada país.</p></div>
+  <div class="paises surge" id="listaPaises"></div>
+  <p class="fonte" data-t="fonte">Ordem: países que mais recebem imigrantes (ONU, International Migrant Stock 2024).</p>
+</div></section>
+
+<section id="planos" style="padding-top:20px"><div class="wrap">
+  <div class="titulo surge"><div class="k" data-t="k5">Planos</div><h2 data-t="h2e">Comece grátis. Pague uma vez, se quiser mais.</h2><p data-t="p2e">Sem assinatura. Seus documentos são sempre seus — ver e exportar cada um é grátis.</p></div>
+  <div class="planos">
+    <div class="plano surge"><h3 data-t="g">Grátis</h3><div class="pr" data-t="gpr">Para sempre</div><ul id="listaGratis"></ul></div>
+    <div class="plano top surge"><span class="tag" data-t="tag">Preço de lançamento</span><h3>Janus Completo</h3><div class="pr" data-t="cpr">Pagamento único · preço exibido na loja</div><ul id="listaCompleto"></ul></div>
+  </div>
+</div></section>
+
+<section id="faq" style="padding-top:20px"><div class="wrap">
+  <div class="titulo surge"><div class="k">FAQ</div><h2 data-t="h2f">Perguntas frequentes</h2></div>
+  <div class="faq" id="listaFaq"></div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="aviso" data-t="aviso">O Janus Global Visa é uma ferramenta de organização. Não é escritório de advocacia, não presta aconselhamento jurídico, não representa ninguém perante autoridades e não é afiliado ao USCIS, ao Departamento de Estado ou a qualquer governo. Nenhum resultado é garantido: a decisão cabe sempre à autoridade competente. Regras e taxas mudam — confira sempre nas fontes oficiais.</div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div>© 2026 Mario Santos · Janus Global Visa</div>
+  <div style="display:flex;gap:18px;flex-wrap:wrap">
+    <a href="privacidade.html" data-t="f1">Privacidade</a>
+    <a href="suporte.html" data-t="f2">Suporte</a>
+    <a href="mailto:janusglobalvisa@gmail.com">janusglobalvisa@gmail.com</a>
+  </div>
+</div></footer>
+
+<script>
+(function(){
+  var T={
+    pt:{nav1:"Recursos",nav2:"Privacidade",nav3:"Planos",eyebrow:"Green Card por emprego · EB-1A · EB-2 NIW",
+      h1:'Seu dossiê de imigração, <em>organizado</em> do primeiro documento ao PDF final.',
+      lead:"O Janus guarda seus documentos com criptografia no seu celular, organiza tudo nas pastas com os nomes oficiais e mostra, com fonte e data, o que ainda falta conferir.",
+      breve1:"Em breve",breve2:"iPhone e Android",como:"Ver como funciona",c1:"Criptografado no aparelho",c2:"Sem cadastro",c3:"Sem anúncios nem rastreamento",
+      fl1:"Pasta conferida",fl2:"PDF pronto para revisão",m_pais:"Estados Unidos",m_passos:"4 de 10 passos",m_v:"6 verde",m_a:"3 amarelo",m_r:"1 vermelho",
+      m_prox:"PRÓXIMA AÇÃO",m_acao:"Adicionar cartas de recomendação",m_fazer:"Fazer agora →",m_p1:"Diploma e histórico",m_p2:"2 de 3 cartas",m_p3:"Rascunho",
+      k1:"Recursos",h2a:"Tudo o que o seu pedido exige, num só lugar.",p2a:"Feito para quem monta o próprio dossiê ou quer chegar ao advogado com tudo organizado.",
+      r1t:"Cofre criptografado",r1:"Fotos, PDFs e dados ficam só no seu celular, protegidos por Face ID ou digital.",
+      r2t:"Pastas com nomes oficiais",r2:"Organização pelos termos usados nas normas do governo americano para cada critério.",
+      r3t:"Semáforo de conferência",r3:"Verde, amarelo ou vermelho para cada item — sempre com a fonte oficial e a data.",
+      r4t:"Pacote final em PDF",r4:"Anexos numerados (Exhibits), índice e separadores, pronto para revisão.",
+      r5t:"Taxas oficiais",r5:"Estimativa por tipo de visto, fora ou dentro dos EUA, com aviso de que os valores mudam.",
+      r6t:"Explorador de caminhos",r6:"Veja os requisitos oficiais de cada categoria lado a lado. Informativo, sem recomendação.",
+      r7t:"Trilha para médicos",r7:"Physician NIW, licença médica por estado e o que fazer fora do app, com links oficiais.",
+      r8t:"Lembretes de prazos",r8:"Avisos locais e discretos dos próximos passos — sem servidor, sem dados expostos.",
+      k2:"Como funciona",h2b:"Três passos, no seu ritmo.",
+      s1t:"Escolha o destino e o pedido",s1:"Estados Unidos, EB-1A ou EB-2 NIW. O app monta o mapa do que cada critério pede.",
+      s2t:"Adicione seus documentos",s2:"Foto, galeria ou PDF — vários de uma vez. Cada um vai para a pasta certa.",
+      s3t:"Confira e gere o pacote",s3:"Resolva o que está amarelo ou vermelho e gere o PDF para revisar com seu advogado.",
+      k3:"Privacidade em primeiro lugar",h2c:"Seus documentos nunca saem do seu celular sem você pedir.",p2c:"Passaporte, diplomas e cartas são dados sensíveis. Por isso o Janus foi feito para funcionar sem conta e sem nuvem.",
+      l1:"Banco de dados e arquivos criptografados, com a chave guardada no cofre seguro do aparelho.",l2:"Sem cadastro, sem anúncios, sem ferramentas de rastreamento.",l3:"Exportar e compartilhar só com a sua confirmação.",l4:"Apagar tudo com um toque, quando quiser.",
+      k4:"Destinos",h2d:"Começando pelos Estados Unidos.",p2d:"Novos destinos entram só depois de revisarmos as regras oficiais de cada país.",fonte:"Ordem: países que mais recebem imigrantes (ONU, International Migrant Stock 2024).",
+      disp:"Disponível",breve:"Em breve",
+      k5:"Planos",h2e:"Comece grátis. Pague uma vez, se quiser mais.",p2e:"Sem assinatura. Seus documentos são sempre seus — ver e exportar cada um é grátis.",
+      g:"Grátis",gpr:"Para sempre",tag:"Preço de lançamento",cpr:"Pagamento único · preço exibido na loja",
+      gl:["Explorador de caminhos e resumo dos países","Calculadora de taxas oficiais","Mapa, checklist e progresso em 10 passos","Até 10 documentos com pastas oficiais","Prévia do pacote final"],
+      cl:["Documentos ilimitados, para você e a família","PDF final sem marca d'água, com Exhibits e índice","Rascunhos de cartas e plano profissional","Declarações de tradução e guia do I-140","Atualizações das regras incluídas"],
+      h2f:"Perguntas frequentes",
+      faq:[["O Janus dá orientação jurídica?","Não. O Janus organiza e confere seus documentos com listas baseadas em fontes oficiais. Para decisões sobre o seu caso, procure um advogado de imigração."],
+        ["O app garante a aprovação do visto?","Não. Nenhum app ou serviço pode garantir: a decisão é sempre da autoridade competente. O Janus ajuda você a chegar mais organizado."],
+        ["Onde ficam meus documentos?","Só no seu celular, criptografados. Não temos servidor que receba seus arquivos e não pedimos cadastro."],
+        ["Quais vistos o app cobre?","Hoje, Green Card por emprego nos EUA, com foco em EB-1A e EB-2 NIW (incluindo a trilha para médicos). Outros destinos aparecem como “em breve”."],
+        ["Funciona no Android?","Sim. O Janus é feito para iPhone e Android, com as mesmas funções."],
+        ["As taxas mostradas são as oficiais?","São estimativas com fonte e data, marcadas como “a confirmar”. Os valores mudam: confira sempre no site do USCIS e do Departamento de Estado antes de pagar."]],
+      aviso:"O Janus Global Visa é uma ferramenta de organização. Não é escritório de advocacia, não presta aconselhamento jurídico, não representa ninguém perante autoridades e não é afiliado ao USCIS, ao Departamento de Estado ou a qualquer governo. Nenhum resultado é garantido: a decisão cabe sempre à autoridade competente. Regras e taxas mudam — confira sempre nas fontes oficiais.",
+      f1:"Privacidade",f2:"Suporte",
+      paises:{US:"Estados Unidos",DE:"Alemanha",SA:"Arábia Saudita",GB:"Reino Unido",FR:"França",ES:"Espanha",CA:"Canadá",AE:"Emirados Árabes",AU:"Austrália",RU:"Rússia",NZ:"Nova Zelândia",JP:"Japão",BR:"Brasil",CN:"China"}},
+    en:{nav1:"Features",nav2:"Privacy",nav3:"Plans",eyebrow:"Employment-based Green Card · EB-1A · EB-2 NIW",
+      h1:'Your immigration dossier, <em>organized</em> from the first document to the final PDF.',
+      lead:"Janus keeps your documents encrypted on your phone, organizes everything into folders with the official names and shows, with source and date, what still needs review.",
+      breve1:"Coming soon",breve2:"iPhone and Android",como:"See how it works",c1:"Encrypted on device",c2:"No account",c3:"No ads or tracking",
+      fl1:"Folder reviewed",fl2:"PDF ready for review",m_pais:"United States",m_passos:"4 of 10 steps",m_v:"6 green",m_a:"3 yellow",m_r:"1 red",
+      m_prox:"NEXT ACTION",m_acao:"Add recommendation letters",m_fazer:"Do it now →",m_p1:"Diploma and transcript",m_p2:"2 of 3 letters",m_p3:"Draft",
+      k1:"Features",h2a:"Everything your petition needs, in one place.",p2a:"Built for people who prepare their own dossier or want to reach their attorney fully organized.",
+      r1t:"Encrypted vault",r1:"Photos, PDFs and data stay only on your phone, protected by Face ID or fingerprint.",
+      r2t:"Official folder names",r2:"Organized by the terms used in U.S. government rules for each criterion.",
+      r3t:"Review traffic light",r3:"Green, yellow or red for each item — always with the official source and date.",
+      r4t:"Final PDF package",r4:"Numbered exhibits, index and separators, ready for review.",
+      r5t:"Official fees",r5:"Estimates per visa type, outside or inside the U.S., with a clear note that fees change.",
+      r6t:"Path explorer",r6:"See each category's official requirements side by side. Informational, no recommendations.",
+      r7t:"Physician track",r7:"Physician NIW, state medical licensure and what to do outside the app, with official links.",
+      r8t:"Deadline reminders",r8:"Local, discreet reminders of next steps — no server, no exposed data.",
+      k2:"How it works",h2b:"Three steps, at your own pace.",
+      s1t:"Choose destination and petition",s1:"United States, EB-1A or EB-2 NIW. The app maps what each criterion requires.",
+      s2t:"Add your documents",s2:"Camera, photos or PDF — many at once. Each goes to the right folder.",
+      s3t:"Review and build the package",s3:"Resolve what is yellow or red and generate the PDF to review with your attorney.",
+      k3:"Privacy first",h2c:"Your documents never leave your phone unless you ask.",p2c:"Passports, diplomas and letters are sensitive. That is why Janus works with no account and no cloud.",
+      l1:"Encrypted database and files, with the key kept in the device's secure storage.",l2:"No account, no ads, no tracking tools.",l3:"Export and sharing only with your confirmation.",l4:"Delete everything with one tap, anytime.",
+      k4:"Destinations",h2d:"Starting with the United States.",p2d:"New destinations are added only after their official rules are reviewed.",fonte:"Order: countries receiving the most immigrants (UN, International Migrant Stock 2024).",
+      disp:"Available",breve:"Coming soon",
+      k5:"Plans",h2e:"Start free. Pay once if you want more.",p2e:"No subscription. Your documents are always yours — viewing and exporting each one is free.",
+      g:"Free",gpr:"Forever",tag:"Launch price",cpr:"One-time payment · price shown in the store",
+      gl:["Path explorer and country summaries","Official fee calculator","Case map, checklist and 10-step progress","Up to 10 documents with official folders","Final package preview"],
+      cl:["Unlimited documents, for you and your family","Final PDF without watermark, with exhibits and index","Letter and professional plan drafts","Translation certifications and I-140 guide","Rule updates included"],
+      h2f:"Frequently asked questions",
+      faq:[["Does Janus give legal advice?","No. Janus organizes and reviews your documents with checklists based on official sources. For decisions about your case, consult an immigration attorney."],
+        ["Does the app guarantee approval?","No. No app or service can: the decision always belongs to the competent authority. Janus helps you get organized."],
+        ["Where are my documents stored?","Only on your phone, encrypted. We have no server that receives your files and no account is required."],
+        ["Which visas are covered?","Today, U.S. employment-based Green Cards, focused on EB-1A and EB-2 NIW (including a physician track). Other destinations are shown as “coming soon”."],
+        ["Does it work on Android?","Yes. Janus is built for iPhone and Android with the same features."],
+        ["Are the fees shown official?","They are estimates with source and date, marked “to be confirmed”. Fees change: always check USCIS and the Department of State before paying."]],
+      aviso:"Janus Global Visa is an organization tool. It is not a law firm, does not provide legal advice, does not represent anyone before authorities and is not affiliated with USCIS, the Department of State or any government. No outcome is guaranteed: the decision always belongs to the competent authority. Rules and fees change — always check official sources.",
+      f1:"Privacy",f2:"Support",
+      paises:{US:"United States",DE:"Germany",SA:"Saudi Arabia",GB:"United Kingdom",FR:"France",ES:"Spain",CA:"Canada",AE:"United Arab Emirates",AU:"Australia",RU:"Russia",NZ:"New Zealand",JP:"Japan",BR:"Brazil",CN:"China"}}
+  };
+  var ORDEM=["US","DE","SA","GB","FR","ES","CA","AE","AU","RU","NZ","JP","BR","CN"];
+  var flag=function(c){return String.fromCodePoint.apply(null,c.split("").map(function(l){return 0x1F1E6+l.charCodeAt(0)-65}))};
+  var chk='<svg><use href="#check"/></svg>';
+  var lang=(navigator.language||"pt").toLowerCase().indexOf("pt")===0?"pt":"en";
+  try{var s=localStorage.getItem("janus_lang");if(s==="pt"||s==="en")lang=s}catch(e){}
+  function aplicar(){
+    var d=T[lang];document.documentElement.lang=lang==="pt"?"pt-BR":"en";
+    document.querySelectorAll("[data-t]").forEach(function(el){var v=d[el.getAttribute("data-t")];if(typeof v!=="string")return;if(el.hasAttribute("data-html"))el.innerHTML=v;else el.textContent=v});
+    document.getElementById("lang").textContent=lang==="pt"?"EN":"PT";
+    document.getElementById("listaPaises").innerHTML=ORDEM.map(function(c){var a=c==="US";return '<span class="pais'+(a?" ativo":"")+'"><span class="f" aria-hidden="true">'+flag(c)+'</span>'+d.paises[c]+'<span class="s">'+(a?d.disp:d.breve)+'</span></span>'}).join("");
+    document.getElementById("listaGratis").innerHTML=d.gl.map(function(x){return "<li>"+chk+"<span>"+x+"</span></li>"}).join("");
+    document.getElementById("listaCompleto").innerHTML=d.cl.map(function(x){return "<li>"+chk+"<span>"+x+"</span></li>"}).join("");
+    document.getElementById("listaFaq").innerHTML=d.faq.map(function(q){return "<details><summary>"+q[0]+"</summary><p>"+q[1]+"</p></details>"}).join("");
+  }
+  document.getElementById("lang").addEventListener("click",function(){lang=lang==="pt"?"en":"pt";try{localStorage.setItem("janus_lang",lang)}catch(e){}aplicar()});
+  aplicar();
+  var els=document.querySelectorAll(".surge");
+  if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("vis");io.unobserve(e.target)}})},{threshold:.12});els.forEach(function(e){io.observe(e)})}
+  else els.forEach(function(e){e.classList.add("vis")});
+})();
+</script>
+</body>
+</html>
