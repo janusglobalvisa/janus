@@ -30,7 +30,7 @@
 }}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--fundo);color:var(--texto);font:17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+body{-webkit-text-size-adjust:100%;text-size-adjust:100%;margin:0;background:var(--fundo);color:var(--texto);font:17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
 a{color:var(--prim)}
 .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 /* topo */
@@ -67,10 +67,10 @@ h1 em{font-style:italic;color:var(--prim)}
 .ok{width:18px;height:18px;flex:none}
 /* celular */
 .palco{display:flex;justify-content:center;position:relative}
-.celular{width:300px;max-width:82vw;border-radius:44px;padding:12px;background:linear-gradient(160deg,#2b3a42,#0f171b);box-shadow:0 40px 80px rgba(11,26,36,.28),0 0 0 1px rgba(255,255,255,.06) inset;animation:flutua 7s ease-in-out infinite}
+.celular{width:min(300px,68vw);border-radius:44px;padding:12px;background:linear-gradient(160deg,#2b3a42,#0f171b);box-shadow:0 40px 80px rgba(11,26,36,.28),0 0 0 1px rgba(255,255,255,.06) inset;animation:flutua 7s ease-in-out infinite}
 @keyframes flutua{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-12px) rotate(-.5deg)}}
-.tela{border-radius:34px;overflow:hidden;background:#F4F6F8;color:#16212B;font-size:12px;line-height:1.45}
-.ilha{width:92px;height:24px;border-radius:14px;background:#0f171b;margin:8px auto 0}
+.tela{position:relative;border-radius:34px;overflow:hidden;background:#F4F6F8;aspect-ratio:600/1304}.tela img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.ilha{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:31%;height:3.4%;border-radius:14px;background:#0f171b;z-index:1}
 .app{padding:10px 12px 16px;display:grid;gap:9px}
 .cab{border-radius:16px;padding:12px;background:#0E6B70;color:#fff;display:grid;gap:6px}
 .cab .l{display:flex;align-items:center;gap:8px;font-weight:700}
@@ -198,28 +198,7 @@ footer a{color:var(--sec)}
 
   <div class="palco surge" aria-hidden="true">
     <div class="flutuante f1"><span class="chip c-v">✓</span><span data-t="fl1">Pasta conferida</span></div>
-    <div class="celular"><div class="tela">
-      <div class="ilha"></div>
-      <div class="app">
-        <div style="display:flex;align-items:center;gap:6px;font-weight:700;font-size:12px"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><defs><linearGradient id="jgc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14898F"/><stop offset="1" stop-color="#0A4448"/></linearGradient></defs><rect width="100" height="100" rx="23" fill="url(#jgc)"/><path d="M29 58V45a21 21 0 0 1 42 0v21c0 11-7.5 17.5-17.5 17.5c-7 0-12-3.5-14.5-9" fill="none" stroke="#fff" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M50 35l2.4 6.1 6.1 2.4-6.1 2.4L50 52l-2.4-6.1-6.1-2.4 6.1-2.4z" fill="#E2B55A"/></svg>Janus <i style="color:#0E6B70">Global Visa</i></div>
-        <div class="cab">
-          <div class="l"><span class="b">🇺🇸</span><span><span data-t="m_pais">Estados Unidos</span><br><span style="font-weight:500;opacity:.9">EB-2 NIW</span></span></div>
-          <div class="p" data-t="m_passos">4 de 10 passos</div>
-          <div class="trilho"><i></i></div>
-          <div class="chips"><span class="chip c-v" data-t="m_v">6 verde</span><span class="chip c-a" data-t="m_a">3 amarelo</span><span class="chip c-r" data-t="m_r">1 vermelho</span></div>
-        </div>
-        <div class="card dest">
-          <div class="rot" data-t="m_prox">PRÓXIMA AÇÃO</div>
-          <b data-t="m_acao">Adicionar cartas de recomendação</b>
-          <div class="mini" data-t="m_fazer">Fazer agora →</div>
-        </div>
-        <div class="card">
-          <div class="pasta"><span class="pi">🎓</span><span><b>Advanced Degree</b><small data-t="m_p1">Diploma e histórico</small></span><span class="dot" style="background:#2E9E5B"></span></div>
-          <div class="pasta"><span class="pi">✉️</span><span><b>Letters of Recommendation</b><small data-t="m_p2">2 de 3 cartas</small></span><span class="dot" style="background:#E0A32E"></span></div>
-          <div class="pasta"><span class="pi">📄</span><span><b>Professional Plan</b><small data-t="m_p3">Rascunho</small></span><span class="dot" style="background:#E0A32E"></span></div>
-        </div>
-      </div>
-    </div></div>
+    <div class="celular"><div class="tela"><div class="ilha"></div><img id="telaApp" src="tela-inicio-pt.jpg" width="600" height="1304" alt="Tela inicial do app Janus com dados fictícios"></div></div>
     <div class="flutuante f2"><span style="font-size:18px">🔒</span><span data-t="fl2">PDF pronto para revisão</span></div>
   </div>
 </div></section>
@@ -384,6 +363,7 @@ footer a{color:var(--sec)}
     var d=T[lang];document.documentElement.lang=lang==="pt"?"pt-BR":"en";
     document.querySelectorAll("[data-t]").forEach(function(el){var v=d[el.getAttribute("data-t")];if(typeof v!=="string")return;if(el.hasAttribute("data-html"))el.innerHTML=v;else el.textContent=v});
     document.getElementById("lang").textContent=lang==="pt"?"EN":"PT";
+    var ta=document.getElementById("telaApp");if(ta){ta.src=lang==="pt"?"tela-inicio-pt.jpg":"tela-inicio-en.jpg";ta.alt=lang==="pt"?"Tela inicial do app Janus com dados fictícios":"Janus app home screen with sample data"}
     document.getElementById("listaPaises").innerHTML=ORDEM.map(function(c){var a=c==="US";return '<span class="pais'+(a?" ativo":"")+'"><span class="f" aria-hidden="true">'+flag(c)+'</span>'+d.paises[c]+'<span class="s">'+(a?d.disp:d.breve)+'</span></span>'}).join("");
     document.getElementById("listaGratis").innerHTML=d.gl.map(function(x){return "<li>"+chk+"<span>"+x+"</span></li>"}).join("");
     document.getElementById("listaCompleto").innerHTML=d.cl.map(function(x){return "<li>"+chk+"<span>"+x+"</span></li>"}).join("");
