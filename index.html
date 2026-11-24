@@ -172,7 +172,7 @@ footer a{color:var(--sec)}
     <a class="opc" href="#privacidade" data-t="nav2">Privacidade</a>
     <a class="opc" href="#planos" data-t="nav3">Planos</a>
     <a class="opc" href="#faq">FAQ</a>
-    <button class="lang" id="lang" type="button" aria-label="Change language">EN</button>
+    <select class="lang" id="lang" aria-label="Idioma / Language / Idioma"><option value="pt">🇧🇷 PT</option><option value="en">🇺🇸 EN</option><option value="es">🇪🇸 ES</option></select>
   </nav>
 </div></header>
 
@@ -316,6 +316,43 @@ footer a{color:var(--sec)}
       aviso:"O Janus Global Visa é uma ferramenta de organização. Não é escritório de advocacia, não presta aconselhamento jurídico, não representa ninguém perante autoridades e não é afiliado ao USCIS, ao Departamento de Estado ou a qualquer governo. Nenhum resultado é garantido: a decisão cabe sempre à autoridade competente. Regras e taxas mudam — confira sempre nas fontes oficiais.",
       f1:"Privacidade",f2:"Suporte",f3:"Termos",
       paises:{US:"Estados Unidos",PT:"Portugal",DE:"Alemanha",GB:"Reino Unido",FR:"França",ES:"Espanha",IT:"Itália",IE:"Irlanda",NL:"Países Baixos",CH:"Suíça",SE:"Suécia",DK:"Dinamarca",NO:"Noruega",FI:"Finlândia",CA:"Canadá",AU:"Austrália",NZ:"Nova Zelândia",JP:"Japão",CN:"China",BR:"Brasil"}},
+    es:{nav1:"Funciones",nav2:"Privacidad",nav3:"Planes",eyebrow:"Green Card por empleo · EB-1A · EB-2 NIW",
+      h1:'Tu expediente de inmigración, <em>organizado</em> desde el primer documento hasta el PDF final.',
+      lead:"Janus guarda tus documentos cifrados en tu teléfono, organiza todo en carpetas con los nombres oficiales y muestra, con fuente y fecha, lo que aún falta revisar.",
+      breve1:"Próximamente",breve2:"iPhone y Android",como:"Ver cómo funciona",c1:"Cifrado en el dispositivo",c2:"Sin registro",c3:"Sin anuncios ni rastreo",
+      fl1:"Carpeta revisada",fl2:"PDF listo para revisión",m_pais:"Estados Unidos",m_passos:"4 de 10 pasos",m_v:"6 verde",m_a:"3 amarillo",m_r:"1 rojo",
+      m_prox:"PRÓXIMA ACCIÓN",m_acao:"Agregar cartas de recomendación",m_fazer:"Hacerlo ahora →",m_p1:"Diploma y notas",m_p2:"2 de 3 cartas",m_p3:"Borrador",
+      k1:"Funciones",h2a:"Todo lo que exige tu solicitud, en un solo lugar.",p2a:"Hecho para quien arma su propio expediente o quiere llegar al abogado con todo organizado.",
+      r1t:"Bóveda cifrada",r1:"Fotos, PDF y datos quedan solo en tu teléfono, protegidos con Face ID o huella digital.",
+      r2t:"Carpetas con nombres oficiales",r2:"Organización según los términos de las normas del gobierno de EE. UU. para cada criterio.",
+      r3t:"Semáforo de revisión",r3:"Verde, amarillo o rojo para cada elemento — siempre con la fuente oficial y la fecha.",
+      r4t:"Paquete final en PDF",r4:"Anexos numerados (Exhibits), índice y separadores, listo para revisión.",
+      r5t:"Tasas oficiales",r5:"Estimación por tipo de visa, fuera o dentro de EE. UU., con aviso de que los montos cambian.",
+      r6t:"Explorador de caminos",r6:"Mira los requisitos oficiales de cada categoría lado a lado. Informativo, sin recomendaciones.",
+      r7t:"Ruta para médicos",r7:"Physician NIW, licencia médica por estado y qué hacer fuera de la app, con enlaces oficiales.",
+      r8t:"Recordatorios de plazos",r8:"Avisos locales y discretos de los próximos pasos — sin servidor, sin datos expuestos.",
+      k2:"Cómo funciona",h2b:"Tres pasos, a tu ritmo.",
+      s1t:"Elige el destino y la solicitud",s1:"Estados Unidos, EB-1A o EB-2 NIW. La app arma el mapa de lo que pide cada criterio.",
+      s2t:"Agrega tus documentos",s2:"Cámara, galería o PDF — varios a la vez. Cada uno va a la carpeta correcta.",
+      s3t:"Revisa y genera el paquete",s3:"Resuelve lo que está en amarillo o rojo y genera el PDF para revisarlo con tu abogado.",
+      k3:"La privacidad primero",h2c:"Tus documentos nunca salen de tu teléfono sin que lo pidas.",p2c:"Pasaporte, diplomas y cartas son datos sensibles. Por eso Janus funciona sin cuenta y sin nube.",
+      l1:"Base de datos y archivos cifrados, con la clave guardada en el almacenamiento seguro del dispositivo.",l2:"Sin registro, sin anuncios, sin herramientas de rastreo.",l3:"Exportar y compartir solo con tu confirmación.",l4:"Borra todo con un toque, cuando quieras.",
+      k4:"Destinos",h2d:"Empezando por Estados Unidos.",p2d:"Luego, Europa: Portugal, Alemania, Irlanda, Países Bajos, Suiza y otros — cada destino entra solo después de revisar sus reglas oficiales.",fonte:"Estados Unidos disponible ahora; luego, destinos en Europa y otras regiones.",
+      disp:"Disponible",breve:"Próximamente",
+      k5:"Planes",h2e:"Empieza gratis. Paga una vez, si quieres más.",p2e:"Sin suscripción. Tus documentos siempre son tuyos — ver y exportar cada uno es gratis.",
+      g:"Gratis",gpr:"Para siempre",tag:"Precio de lanzamiento",cpr:"Pago único · precio mostrado en la tienda",
+      gl:["Explorador de caminos y resumen de países","Calculadora de tasas oficiales","Mapa, checklist y progreso en 10 pasos","Hasta 10 documentos con carpetas oficiales","Vista previa del paquete final"],
+      cl:["Documentos ilimitados, para ti y tu familia","PDF final sin marca de agua, con Exhibits e índice","Borradores de cartas y plan profesional","Certificaciones de traducción y guía del I-140","Actualizaciones de reglas incluidas"],
+      h2f:"Preguntas frecuentes",
+      faq:[["¿Janus da asesoría legal?","No. Janus organiza y revisa tus documentos con listas basadas en fuentes oficiales. Para decisiones sobre tu caso, consulta a un abogado de inmigración."],
+        ["¿La app garantiza la aprobación de la visa?","No. Ninguna app o servicio puede garantizarlo: la decisión siempre es de la autoridad competente. Janus te ayuda a llegar más organizado."],
+        ["¿Dónde quedan mis documentos?","Solo en tu teléfono, cifrados. No tenemos servidor que reciba tus archivos y no pedimos registro."],
+        ["¿Qué visas cubre la app?","Hoy, la Green Card por empleo en EE. UU., con foco en EB-1A y EB-2 NIW (incluida la ruta para médicos). Otros destinos aparecen como “próximamente”."],
+        ["¿Funciona en Android?","Sí. Janus está hecho para iPhone y Android, con las mismas funciones."],
+        ["¿Las tasas mostradas son las oficiales?","Son estimaciones con fuente y fecha, marcadas como “a confirmar”. Los montos cambian: revisa siempre el sitio de USCIS y del Departamento de Estado antes de pagar."]],
+      aviso:"Janus Global Visa es una herramienta de organización. No es un despacho de abogados, no presta asesoría legal, no representa a nadie ante autoridades y no está afiliado a USCIS, al Departamento de Estado ni a ningún gobierno. Ningún resultado está garantizado: la decisión siempre corresponde a la autoridad competente. Las reglas y tasas cambian — revisa siempre las fuentes oficiales.",
+      f1:"Privacidad",f2:"Soporte",f3:"Términos",
+      paises:{US:"Estados Unidos",PT:"Portugal",DE:"Alemania",GB:"Reino Unido",FR:"Francia",ES:"España",IT:"Italia",IE:"Irlanda",NL:"Países Bajos",CH:"Suiza",SE:"Suecia",DK:"Dinamarca",NO:"Noruega",FI:"Finlandia",CA:"Canadá",AU:"Australia",NZ:"Nueva Zelanda",JP:"Japón",CN:"China",BR:"Brasil"}},
     en:{nav1:"Features",nav2:"Privacy",nav3:"Plans",eyebrow:"Employment-based Green Card · EB-1A · EB-2 NIW",
       h1:'Your immigration dossier, <em>organized</em> from the first document to the final PDF.',
       lead:"Janus keeps your documents encrypted on your phone, organizes everything into folders with the official names and shows, with source and date, what still needs review.",
@@ -357,19 +394,19 @@ footer a{color:var(--sec)}
   var ORDEM=["US","PT","DE","GB","FR","ES","IT","IE","NL","CH","SE","DK","NO","FI","CA","AU","NZ","JP","CN","BR"];
   var flag=function(c){return String.fromCodePoint.apply(null,c.split("").map(function(l){return 0x1F1E6+l.charCodeAt(0)-65}))};
   var chk='<svg><use href="#check"/></svg>';
-  var lang=(navigator.language||"pt").toLowerCase().indexOf("pt")===0?"pt":"en";
-  try{var s=localStorage.getItem("janus_lang");if(s==="pt"||s==="en")lang=s}catch(e){}
+  var nl=(navigator.language||"pt").toLowerCase().slice(0,2);var lang=T[nl]?nl:"en";
+  try{var s=localStorage.getItem("janus_lang");if(T[s])lang=s}catch(e){}
   function aplicar(){
-    var d=T[lang];document.documentElement.lang=lang==="pt"?"pt-BR":"en";
+    var d=T[lang];document.documentElement.lang=lang==="pt"?"pt-BR":lang;
     document.querySelectorAll("[data-t]").forEach(function(el){var v=d[el.getAttribute("data-t")];if(typeof v!=="string")return;if(el.hasAttribute("data-html"))el.innerHTML=v;else el.textContent=v});
-    document.getElementById("lang").textContent=lang==="pt"?"EN":"PT";
-    var ta=document.getElementById("telaApp");if(ta){ta.src=lang==="pt"?"tela-inicio-pt.jpg":"tela-inicio-en.jpg";ta.alt=lang==="pt"?"Tela inicial do app Janus com dados fictícios":"Janus app home screen with sample data"}
+    document.getElementById("lang").value=lang;
+    var ta=document.getElementById("telaApp");if(ta){ta.src="tela-inicio-"+lang+".jpg";ta.alt={pt:"Tela inicial do app Janus com dados fictícios",en:"Janus app home screen with sample data",es:"Pantalla de inicio de la app Janus con datos ficticios"}[lang]}
     document.getElementById("listaPaises").innerHTML=ORDEM.map(function(c){var a=c==="US";return '<span class="pais'+(a?" ativo":"")+'"><span class="f" aria-hidden="true">'+flag(c)+'</span>'+d.paises[c]+'<span class="s">'+(a?d.disp:d.breve)+'</span></span>'}).join("");
     document.getElementById("listaGratis").innerHTML=d.gl.map(function(x){return "<li>"+chk+"<span>"+x+"</span></li>"}).join("");
     document.getElementById("listaCompleto").innerHTML=d.cl.map(function(x){return "<li>"+chk+"<span>"+x+"</span></li>"}).join("");
     document.getElementById("listaFaq").innerHTML=d.faq.map(function(q){return "<details><summary>"+q[0]+"</summary><p>"+q[1]+"</p></details>"}).join("");
   }
-  document.getElementById("lang").addEventListener("click",function(){lang=lang==="pt"?"en":"pt";try{localStorage.setItem("janus_lang",lang)}catch(e){}aplicar()});
+  document.getElementById("lang").addEventListener("change",function(ev){lang=ev.target.value;try{localStorage.setItem("janus_lang",lang)}catch(e){}aplicar()});
   aplicar();
   var els=document.querySelectorAll(".surge");
   if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("vis");io.unobserve(e.target)}})},{threshold:.12});els.forEach(function(e){io.observe(e)})}
