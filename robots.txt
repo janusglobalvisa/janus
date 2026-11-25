@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://janusglobalvisa.github.io/janus/sitemap.xml
