@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Janus Global Visa — Seja um testador</title>
+<meta name="description" content="Teste o Janus Global Visa antes de todo mundo: árvore da família, cidadania e vistos, com os seus documentos organizados no celular.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:title" content="Seja um testador do Janus Global Visa">
+<meta property="og:description" content="Três toques e você testa o app antes de todo mundo (Android).">
+<meta property="og:image" content="https://janusglobalvisa.github.io/janus/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="estilo.css">
+<style>
+  .passo{display:flex;gap:14px;align-items:flex-start}
+  .num{flex:none;width:34px;height:34px;border-radius:50%;background:#0F6B70;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .botao{display:inline-block;margin-top:10px;padding:12px 18px;border-radius:12px;background:#0F6B70;color:#fff !important;font-weight:700;text-decoration:none}
+  .botao.off{background:#9BB3B5;pointer-events:none}
+  .aviso{background:#FFF6DD;border-radius:12px;padding:12px 14px;margin:16px 0}
+</style>
+</head>
+<body><main>
+<header><svg viewBox="0 0 100 100" width="44" height="44" aria-hidden="true"><defs><linearGradient id="jgp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14898F"/><stop offset="1" stop-color="#0A4448"/></linearGradient></defs><rect width="100" height="100" rx="23" fill="url(#jgp)"/><path d="M29 58V45a21 21 0 0 1 42 0v21c0 11-7.5 17.5-17.5 17.5c-7 0-12-3.5-14.5-9" fill="none" stroke="#fff" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M50 35l2.4 6.1 6.1 2.4-6.1 2.4L50 52l-2.4-6.1-6.1-2.4 6.1-2.4z" fill="#E2B55A"/></svg><div><strong>Janus Global Visa</strong><div class="sec">Organizador de dossiê de imigração</div></div></header>
+<nav><a href="index.html">Início</a><a href="privacidade.html">Privacidade</a><a href="termos.html">Termos / Terms</a><a href="suporte.html">Suporte</a></nav>
+
+<h1>Seja um dos primeiros a testar</h1>
+<p>Teste o Janus antes de todo mundo: árvore da família, roteiro da cidadania (Portugal, Itália, Alemanha e Espanha) e vistos, com seus documentos organizados e criptografados no celular. É grátis.</p>
+<div class="aviso" id="embreve" hidden><strong>Inscrições abrem em breve.</strong> Volte aqui em alguns dias.</div>
+<p class="sec">Por enquanto, só para <strong>Android</strong>. Use a mesma conta Google nos três passos.</p>
+
+<div class="cartao passo"><div class="num">1</div><div><strong>Entre no grupo de testadores</strong><br><span class="sec">Toque em "Participar do grupo". Leva um segundo.</span><br><a class="botao" id="b1" href="#">Entrar no grupo</a></div></div>
+<div class="cartao passo"><div class="num">2</div><div><strong>Aceite o convite de teste</strong><br><span class="sec">Na página da Google, toque em "Tornar-se testador".</span><br><a class="botao" id="b2" href="#">Aceitar o convite</a></div></div>
+<div class="cartao passo"><div class="num">3</div><div><strong>Instale pela Google Play</strong><br><span class="sec">Pode levar alguns minutos para aparecer depois do passo 2.</span><br><a class="botao" id="b3" href="#">Baixar na Google Play</a></div></div>
+
+<div class="cartao"><strong>Um pedido importante</strong><p>A Google exige que os testadores fiquem com o app instalado por <strong>14 dias</strong>. Use à vontade e, se algo não funcionar, conte para a gente em <a href="mailto:janusglobalvisa@gmail.com">janusglobalvisa@gmail.com</a> (nunca envie documentos pessoais).</p></div>
+<p class="sec">O Janus organiza e confere documentos com base em fontes oficiais. Não é serviço jurídico e não garante aprovação.</p>
+</main>
+<script>
+  // Preencher GRUPO quando o Google Grupo existir. TESTE e PLAY são fixos pelo nome do pacote.
+  var LINKS = {
+    GRUPO: '',
+    TESTE: 'https://play.google.com/apps/testing/com.janusglobalvisa.app',
+    PLAY: 'https://play.google.com/store/apps/details?id=com.janusglobalvisa.app'
+  };
+  var pronto = !!LINKS.GRUPO;
+  [['b1', LINKS.GRUPO], ['b2', LINKS.TESTE], ['b3', LINKS.PLAY]].forEach(function (x) {
+    var a = document.getElementById(x[0]);
+    if (pronto) { a.href = x[1]; a.target = '_blank'; a.rel = 'noopener'; } else { a.className += ' off'; a.setAttribute('aria-disabled', 'true'); }
+  });
+  document.getElementById('embreve').hidden = pronto;
+</script>
+<script src="assistente.js" defer></script>
+</body></html>
