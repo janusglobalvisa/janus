@@ -311,7 +311,7 @@ footer a{color:var(--sec)}
       faq:[["O Janus dá orientação jurídica?","Não. O Janus organiza e confere seus documentos com listas baseadas em fontes oficiais. Para decisões sobre o seu caso, procure um advogado de imigração."],
         ["O app garante a aprovação do visto?","Não. Nenhum app ou serviço pode garantir: a decisão é sempre da autoridade competente. O Janus ajuda você a chegar mais organizado."],
         ["Onde ficam meus documentos?","Só no seu celular, criptografados. Não temos servidor que receba seus arquivos e não pedimos cadastro."],
-        ["Quais vistos e cidadanias o app cobre?","Green Card por emprego nos EUA (EB-1A e EB-2 NIW, incluindo a trilha para médicos) e, desde novembro de 2026, Portugal, Itália, Alemanha e Espanha: cidadania por descendência, com árvore da família e formulários, e vistos europeus. Requisitos ainda não conferidos na fonte oficial aparecem como “a confirmar”. Outros destinos aparecem como “em breve”."],
+        ["Quais vistos e cidadanias o app cobre?","Green Card por emprego nos EUA (EB-1A e EB-2 NIW, incluindo a trilha para médicos) e, desde novembro de 2026, Portugal, Itália, Alemanha e Espanha: cidadania por descendência, com árvore da família e formulários, e vistos europeus. Vistos de estudante em Portugal, Itália, Alemanha, Espanha, EUA (F-1), Canadá, Reino Unido, Irlanda e Austrália. Requisitos ainda não conferidos na fonte oficial aparecem como “a confirmar”. Outros destinos aparecem como “em breve”."],
         ["Funciona no Android?","Sim. O Janus é feito para iPhone e Android, com as mesmas funções."],
         ["As taxas mostradas são as oficiais?","São estimativas com fonte e data, marcadas como “a confirmar”. Os valores mudam: confira sempre no site do USCIS e do Departamento de Estado antes de pagar."]],
       aviso:"O Janus Global Visa é uma ferramenta de organização. Não é escritório de advocacia, não presta aconselhamento jurídico, não representa ninguém perante autoridades e não é afiliado ao USCIS, ao Departamento de Estado ou a qualquer governo. Nenhum resultado é garantido: a decisão cabe sempre à autoridade competente. Regras e taxas mudam — confira sempre nas fontes oficiais.",
@@ -644,14 +644,14 @@ footer a{color:var(--sec)}
       faq:[["Does Janus give legal advice?","No. Janus organizes and reviews your documents with checklists based on official sources. For decisions about your case, consult an immigration attorney."],
         ["Does the app guarantee approval?","No. No app or service can: the decision always belongs to the competent authority. Janus helps you get organized."],
         ["Where are my documents stored?","Only on your phone, encrypted. We have no server that receives your files and no account is required."],
-        ["Which visas and citizenships are covered?","U.S. employment-based Green Cards (EB-1A and EB-2 NIW, including a physician track) and, since November 2026, Portugal, Italy, Germany and Spain: citizenship by descent, with a family tree and forms, plus European visas. Requirements not yet checked at the official source are shown as “to be confirmed”. Other destinations are shown as “coming soon”."],
+        ["Which visas and citizenships are covered?","U.S. employment-based Green Cards (EB-1A and EB-2 NIW, including a physician track) and, since November 2026, Portugal, Italy, Germany and Spain: citizenship by descent, with a family tree and forms, plus European visas. Student visas for Portugal, Italy, Germany, Spain, the USA (F-1), Canada, the UK, Ireland and Australia. Requirements not yet checked at the official source are shown as “to be confirmed”. Other destinations are shown as “coming soon”."],
         ["Does it work on Android?","Yes. Janus is built for iPhone and Android with the same features."],
         ["Are the fees shown official?","They are estimates with source and date, marked “to be confirmed”. Fees change: always check USCIS and the Department of State before paying."]],
       aviso:"Janus Global Visa is an organization tool. It is not a law firm, does not provide legal advice, does not represent anyone before authorities and is not affiliated with USCIS, the Department of State or any government. No outcome is guaranteed: the decision always belongs to the competent authority. Rules and fees change — always check official sources.",
       f1:"Privacy",f2:"Support",f3:"Terms",
       paises:{US:"United States",PT:"Portugal",DE:"Germany",GB:"United Kingdom",FR:"France",ES:"Spain",IT:"Italy",IE:"Ireland",NL:"Netherlands",CH:"Switzerland",SE:"Sweden",DK:"Denmark",NO:"Norway",FI:"Finland",CA:"Canada",AU:"Australia",NZ:"New Zealand",JP:"Japan",CN:"China",BR:"Brazil"}}
   };
-  var ORDEM=["US","PT","IT","DE","ES","IE","NL","GB","FR","CH","SE","DK","NO","FI","CA","AU","NZ","JP","CN","BR"];
+  var ORDEM=["US","PT","IT","DE","ES","CA","GB","IE","AU","NL","FR","CH","SE","DK","NO","FI","NZ","JP","CN","BR"];
   var flag=function(c){return String.fromCodePoint.apply(null,c.split("").map(function(l){return 0x1F1E6+l.charCodeAt(0)-65}))};
   var chk='<svg><use href="#check"/></svg>';
   var nl=(navigator.language||"pt").toLowerCase().slice(0,2);var lang=T[nl]?nl:"en";
@@ -661,7 +661,7 @@ footer a{color:var(--sec)}
     document.querySelectorAll("[data-t]").forEach(function(el){var v=d[el.getAttribute("data-t")];if(typeof v!=="string")return;if(el.hasAttribute("data-html"))el.innerHTML=v;else el.textContent=v});
     document.getElementById("lang").value=lang;
     var ta=document.getElementById("telaApp");if(ta){ta.src="tela-inicio-"+(lang==="pt"||lang==="es"?lang:"en")+".jpg";ta.alt={pt:"Tela inicial do app Janus com dados fictícios",es:"Pantalla de inicio de la app Janus con datos ficticios"}[lang]||"Janus app home screen with sample data"}
-    document.getElementById("listaPaises").innerHTML=ORDEM.map(function(c){var a=["US","PT","IT","DE","ES"].indexOf(c)>=0;return '<span class="pais'+(a?" ativo":"")+'"><span class="f" aria-hidden="true">'+flag(c)+'</span>'+d.paises[c]+'<span class="s">'+(a?d.disp:d.breve)+'</span></span>'}).join("");
+    document.getElementById("listaPaises").innerHTML=ORDEM.map(function(c){var a=["US","PT","IT","DE","ES","CA","GB","IE","AU"].indexOf(c)>=0;return '<span class="pais'+(a?" ativo":"")+'"><span class="f" aria-hidden="true">'+flag(c)+'</span>'+d.paises[c]+'<span class="s">'+(a?d.disp:d.breve)+'</span></span>'}).join("");
     document.getElementById("listaGratis").innerHTML=d.gl.map(function(x){return "<li>"+chk+"<span>"+x+"</span></li>"}).join("");
     document.getElementById("listaCompleto").innerHTML=d.cl.map(function(x){return "<li>"+chk+"<span>"+x+"</span></li>"}).join("");
     document.getElementById("listaFaq").innerHTML=d.faq.map(function(q){return "<details><summary>"+q[0]+"</summary><p>"+q[1]+"</p></details>"}).join("");
